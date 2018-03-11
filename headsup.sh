@@ -42,7 +42,7 @@ sdk=$(getprop ro.build.version.sdk)
 control=$(ls /data > /dev/null 2>&1 ; echo $?)
 sucontrol=$([ -f /system/*bin/su ]; echo $?)
 sucontrol2=$(su -c "echo succesfully" > /dev/null 2>&1; echo $?)
-hdcontrol=$(su -c 'settings get global heads_up_notifications_enabled')
+hdcontrol=$(su -c 'settings get global heads_up_notifications_enabled' > /dev/null 2>&1; echo $?)
 hdcontrol2=$(echo $hdcontrol)
 if [ $sdk -le "18" ];then
   errorExit "Your sdk version is $sdk"
